@@ -1,6 +1,6 @@
 'use strict'
 
-const Hash = use('Hash')
+const sha1 = require('sha1')
 
 const UserHook = module.exports = {}
 
@@ -15,6 +15,6 @@ const UserHook = module.exports = {}
  */
 UserHook.hashPassword = async (userInstance) => {
   if (userInstance.password) {
-    userInstance.password = await Hash.make(userInstance.password)
+    userInstance.password = await sha1(userInstance.password)
   }
 }
