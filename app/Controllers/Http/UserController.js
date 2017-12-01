@@ -7,7 +7,7 @@ const Logger = use('Logger')
 class UserController {
   async auth({ request, auth }) {
     const { email, senha } = request.all()
-    
+
     const usuario = await User.query().where({email}).first()
 
     return await auth.generate(usuario, true)
